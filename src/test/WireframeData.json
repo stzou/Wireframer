@@ -1,0 +1,271 @@
+{ 
+    "users":[ 
+       { 
+          "firstName": "Steven",
+          "lastName" : "Zou",
+          "initials" : "SZ",
+          "uid":"SJ6FD8rNyfYwIFn3omZE6T8dlGn1",
+          "userType":"UI_Designer",
+          "wireframes":[ 
+             { 
+                "key":0,
+                "name":"Homepage",
+                "controls":[ 
+                   { 
+                      "button":
+                         { 
+                            "key":0,
+                            "height":10,
+                            "width":30,
+                            "position":"0,0",
+                            "font_size":"12",
+                            "font_color":"black",
+                            "border_color":"black",
+                            "border_thickness":"2",
+                            "border_radius":"1"
+ 
+                         }
+                      
+                   },
+                   { 
+                      "textfield":
+                         { 
+                            "key":1,
+                            "height":10,
+                            "width":60,
+                            "position":"10,10",
+                            "font_size":"12",
+                            "font_color":"black",
+                            "border_color":"black",
+                            "border_thickness":"2",
+                            "border_radius":"1"
+ 
+                         }
+                      
+                   },
+                   { 
+                      "container": 
+                         { 
+                            "key":2,
+                            "height":20,
+                            "width":60,
+                            "position":"10,20",
+                            "font_size":"12",
+                            "font_color":"black",
+                            "border_color":"black",
+                            "border_thickness":"2",
+                            "border_radius":"1"
+ 
+                         }
+                      
+                   }
+                ]
+             },
+             { 
+                "key":1,
+                "name":"Website",
+                "controls":[ 
+                   { 
+                      "container": 
+                         { 
+                            "key":0,
+                            "height":20,
+                            "width":60,
+                            "position":"0,0",
+                            "font_size":"12",
+                            "font_color":"grey",
+                            "border_color":"black",
+                            "border_thickness":"2",
+                            "border_radius":"1"
+ 
+                         }
+                      
+                   },
+                   { 
+                      "textfield": 
+                         { 
+                            "key":1,
+                            "height":10,
+                            "width":60,
+                            "position":"10,10",
+                            "font_size":"12",
+                            "font_color":"black",
+                            "border_color":"black",
+                            "border_thickness":"2",
+                            "border_radius":"1"
+ 
+                         }
+                      
+                   },
+                   { 
+                      "button": 
+                         { 
+                            "key":2,
+                            "height":10,
+                            "width":30,
+                            "position":"10,20",
+                            "font_size":"12",
+                            "font_color":"black",
+                            "border_color":"black",
+                            "border_thickness":"2",
+                            "border_radius":"1"
+ 
+                         }
+                      
+                   },
+                   { 
+                      "label": 
+                         { 
+                            "key":3,
+                            "height":10,
+                            "width":30,
+                            "position":"10,30",
+                            "font_size":"12",
+                            "font_color":"black",
+                            "border_color":"black",
+                            "border_thickness":"2",
+                            "border_radius":"1"
+ 
+                         }
+                      
+                   }
+                ]
+             }
+          ]
+       },
+       { 
+        "firstName": "Pamela",
+        "lastName" : "Kuang",
+        "initials" : "PK",
+        "uid":"6HiBuO2m5bQnCQkUKRuJmaim2mN2",
+        "userType":"UI_Designer",
+          "wireframes":[ 
+             { 
+                "key":0,
+                "name":"App",
+                "controls":[ 
+                   { 
+                      "label": 
+                         { 
+                            "key":0,
+                            "height":10,
+                            "width":30,
+                            "position":"0,0",
+                            "font_size":"12",
+                            "font_color":"black",
+                            "border_color":"black",
+                            "border_thickness":"2",
+                            "border_radius":"1"
+ 
+                         }
+                      
+                   },
+                   { 
+                      "button": 
+                         { 
+                            "key":1,
+                            "height":10,
+                            "width":30,
+                            "position":"10,10",
+                            "font_size":"12",
+                            "font_color":"black",
+                            "border_color":"black",
+                            "border_thickness":"2",
+                            "border_radius":"1"
+ 
+                         }
+                      
+                   },
+                   { 
+                      "container": 
+                         { 
+                            "key":2,
+                            "height":20,
+                            "width":60,
+                            "position":"10,20",
+                            "font_size":"12",
+                            "font_color":"black",
+                            "border_color":"black",
+                            "border_thickness":"2",
+                            "border_radius":"1"
+ 
+                         }
+                      
+                   }
+                ]
+             },
+             { 
+                "key":1,
+                "name":"Login",
+                "controls":[ 
+                   { 
+                      "label": 
+                         { 
+                            "key":0,
+                            "height":10,
+                            "width":30,
+                            "position":"0,0",
+                            "font_size":"12",
+                            "font_color":"grey",
+                            "border_color":"black",
+                            "border_thickness":"2",
+                            "border_radius":"1"
+ 
+                         }
+                      
+                   },
+                   { 
+                      "button": 
+                         { 
+                            "key":1,
+                            "height":10,
+                            "width":30,
+                            "position":"10,10",
+                            "font_size":"12",
+                            "font_color":"black",
+                            "border_color":"black",
+                            "border_thickness":"2",
+                            "border_radius":"1"
+ 
+                         }
+                      
+                   },
+                   { 
+                      "container": 
+                         { 
+                            "key":2,
+                            "height":20,
+                            "width":60,
+                            "position":"10,20",
+                            "font_size":"12",
+                            "font_color":"black",
+                            "border_color":"black",
+                            "border_thickness":"2",
+                            "border_radius":"1"
+ 
+                         }
+                      
+                   },
+                   { 
+                      "button": 
+                         { 
+                            "key":3,
+                            "height":10,
+                            "width":30,
+                            "position":"10,30",
+                            "font_size":"12",
+                            "font_color":"black",
+                            "border_color":"black",
+                            "border_thickness":"2",
+                            "border_radius":"1"
+ 
+                         }
+                      
+                   }
+                ]
+             }
+          ]
+       }
+    ]
+ 
+ }
