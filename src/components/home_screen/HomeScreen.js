@@ -11,9 +11,6 @@ import * as actionCreators from '../../store/actions/actionCreators.js'
 import { Button } from 'react-materialize';
  
 class HomeScreen extends Component {
-    state = {
-        newListId:null,
-    }
 
 
     handleNewList = (e) => {

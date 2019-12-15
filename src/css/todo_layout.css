@@ -134,3 +134,59 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   right:5%;
   top:20%;
 }
+
+.controls-container,.edit-container,.control-details-container{
+  position: relative;
+  top:10px;
+  border: 2px solid; 
+  background-color: #ffffff;
+  height: 500px;
+}
+
+.container-control-option,.prompt-control-option
+,.button-control-option,.textfield-control-option{
+  position: relative;
+  text-align: center;
+
+  left:8%;
+  height: 100px;
+  width: 80%;
+}
+
+.prompt-control-option{
+  height: 80px ;
+}
+.button-control-option{
+  height:80px;
+}
+
+
+.container-control{
+  height:60%;
+  width: 60%;
+  margin: 5px;
+  top: 10px;
+  left: 16%;
+}
+.input-control{
+  width:70%;
+  height:30px;
+  position: relative;
+  left:15%;
+  top:15px;
+  background-color: #fffefe;
+  border: 1px solid;
+  border-radius: 4px;
+}
+.container-text{
+  position: relative;
+  top: 10px;
+}
+.prompt-text,.textfield-text{
+  position: relative;
+  top: 20%;
+}
+.button-control{
+  position: relative;
+  top:10px;
+}
