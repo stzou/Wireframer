@@ -6,22 +6,174 @@ import {Button} from 'react-materialize';
 import { Link } from 'react-router-dom';
 import { getFirestore } from 'redux-firestore';
 import ControlList from './ControlList';
+import { Properties } from './Properties';
 
 export class EditScreen extends Component {
+    state = {
+        blah:false
+    }
+
+    updateControlProps = (key, w,h,x,y) =>{
+        if(this.props.wireframe){
+            let indexOfControl = null;
+            for(var i =0;i<this.props.wireframe.controls.length;i++){
+                if(this.props.wireframe.controls[i].key === key){
+                    indexOfControl = i;
+                }
+            }
+            console.log(indexOfControl);
+            console.log(this.props.wireframe.controls[indexOfControl]);
+            this.props.wireframe.controls[indexOfControl].width = w;
+            this.props.wireframe.controls[indexOfControl].height = h;
+            this.props.wireframe.controls[indexOfControl].x = x;
+            this.props.wireframe.controls[indexOfControl].y = y;
+            console.log(this.props.wireframe.controls[indexOfControl]);
+
+        }
+    }
+    saveChanges = () => {
+        const firestore = getFirestore();
+        if(this.props.wireframes){
+            this.props.wireframes[this.props.wireframe.key] = this.props.wireframe;
+        }
+        firestore.collection("users").doc(this.props.auth.uid).update({
+            wireframes: this.props.wireframes
+        })
+
+    }
     
     createNewContainer = () =>{
+        const firestore = getFirestore();
+        console.log("asdsadasd");
+
+        if(this.props.wireframe){
+            const { wireframe,wireframes } = this.props;
+            const copy = wireframes;
+            const newContainer ={
+                type:"container",
+                key:wireframe.controls.length,
+                height:"200px",
+                width:"200px",
+                x: 10,
+                y: 10,
+                font_size:"12",
+                font_color:"black",
+                border_color:"black",
+                background_color:"white",
+                border_thickness:"2",
+                border_radius:"1"
+    
+            };
+            for(var i = 0;i<wireframes.length;i++){
+                if(wireframes[i].key===wireframe.key){
+                    wireframes[i].controls.push(newContainer);
+                }
+            }
+            firestore.collection("users").doc(this.props.auth.uid).update({
+                wireframes: copy
+            })
+            
+
+        }
+        
+
 
     }
 
     createNewPrompt = () =>{
         
+        const firestore = getFirestore();
+
+        if(this.props.wireframe){
+            const { wireframe,wireframes } = this.props;
+            const newLabel ={
+                type:"label",
+                key:wireframe.controls.length,
+                height:"30px",
+                width:"60px",
+                x: 10,
+                y: 10,
+                font_size:"12",
+                font_color:"black",
+                border_color:"black",
+                background_color:"white",
+                border_thickness:"2",
+                border_radius:"1"
+    
+            };
+            for(var i = 0;i<wireframes.length;i++){
+                if(wireframes[i].key===wireframe.key){
+                    wireframes[i].controls.push(newLabel);
+                }
+            }
+            firestore.collection("users").doc(this.props.auth.uid).update({
+                wireframes: wireframes
+            })
+        }
+        
+
+        
     }
     
     createNewButton = () =>{
+        const firestore = getFirestore();
+        if(this.props.wireframe){
+            const { wireframe,wireframes } = this.props;
+            const newButton ={
+                type:"button",
+                key: wireframe.controls.length,
+                height:"40px",
+                width:"100px",
+                x: 10,
+                y: 10,
+                font_size:"12",
+                font_color:"black",
+                border_color:"black",
+                background_color:"green",
+                border_thickness:"2",
+                border_radius:"1"
+    
+            };
+            for(var i = 0;i<wireframes.length;i++){
+                if(wireframes[i].key===wireframe.key){
+                    wireframes[i].controls.push(newButton);
+                }
+            }
+            firestore.collection("users").doc(this.props.auth.uid).update({
+                wireframes: wireframes
+            })
+        }
         
     }
 
     createNewTextfield = () =>{
+        const firestore = getFirestore();
+        if(this.props.wireframe){
+            const { wireframe,wireframes } = this.props;
+            const newTextfield ={
+                type:"textfield",
+                key: wireframe.controls.length,
+                height:"25px",
+                width:"100px",
+                x: 10,
+                y: 10,
+                font_size:"12",
+                font_color:"black",
+                border_color:"black",
+                background_color:"green",
+                border_thickness:"2",
+                border_radius:"1"
+    
+            };
+            for(var i = 0;i<wireframes.length;i++){
+                if(wireframes[i].key===wireframe.key){
+                    wireframes[i].controls.push(newTextfield);
+                }
+            }
+            firestore.collection("users").doc(this.props.auth.uid).update({
+                wireframes: wireframes
+            })
+        }
         
     }
 
@@ -38,29 +190,29 @@ export class EditScreen extends Component {
                         <Button className="col s3">
                             <i className="material-icons">zoom_out</i>
                         </Button>
-                        <Button className="col s3">Save</Button>
+                        <Button className="col s3" onClick = {() => this.saveChanges()}>Save</Button>
                         <Link to={'/home/'}>
                             <Button className="col s3">Close</Button>
                         </Link>
                     </div>
-                    <div className="container-control-option card" onClick = {this.createNewContainer()}>
+                    <div className="container-control-option card" onClick = { () => this.createNewContainer()}>
                         <div className="container-control card">
                         </div>
                         <div className=" container-text">Container</div>
                     </div>
-                    <div className="prompt-control-option card" onClick = {this.createNewPrompt()}>
+                    <div className="prompt-control-option card" onClick = {() => this.createNewPrompt()}>
                         <div className="center prompt-text">Prompt for Input:
                             <br></br>
                             Label
                         </div>
                     </div>
-                    <div className="button-control-option card" onClick = {this.createNewButton()}>
+                    <div className="button-control-option card" onClick = {() => this.createNewButton()}>
                         <Button className="button-control">Submit</Button>
                         <div className="center prompt-text">
                             Button
                         </div>
                     </div>
-                    <div className="textfield-control-option card" onClick = {this.createNewTextfield()}>
+                    <div className="textfield-control-option card" onClick = {() => this.createNewTextfield()}>
                         <div className="input-control grey-text left-align">Input</div>
                         <div className="center textfield-text">
                             Textfield
@@ -69,10 +221,10 @@ export class EditScreen extends Component {
 
                 </div>
                 <div className="col s6 edit-container">
-                    <ControlList wireframe={this.props.wireframe}></ControlList>
+                    <ControlList wireframe={this.props.wireframe} updateControlProps={this.updateControlProps}></ControlList>
                 </div>
                 <div className="col s3 control-details-container">
-                    fd
+                    <Properties></Properties>
                 </div>
             </div>
         )
@@ -80,7 +232,6 @@ export class EditScreen extends Component {
 }
 const mapStateToProps = (state,ownProps) => {
     const {key} = ownProps.match.params;
-    const wireframeKey = key;
 
     const users = state.firestore.ordered.users;
     const auth = state.firebase.auth;

@@ -190,3 +190,25 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   position: relative;
   top:10px;
 }
+
+.container-card{
+  z-index: 0;
+}
+
+.button-card, .textfield-card{
+  z-index: 1;
+}
+.label-card{
+  background-color: inherit;
+  z-index: 1;
+}
+.button-card-content,.textfield-card-content,.label-card-content{
+  font-size:inherit;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.button-card-content{
+  text-align: center;
+}
