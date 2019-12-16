@@ -97,8 +97,8 @@
                          { 
                            "type":"button",
                             "key":1,
-                            "height":"100px",
-                            "width":"200px",
+                            "height":"50px",
+                            "width":"100px",
                             "x": 10,
                             "y": 10,
                             "font_size":"12px",
@@ -113,8 +113,8 @@
                          { 
                             "type":"button",
                             "key":2,
-                            "height":"300px",
-                            "width":"200px",
+                            "height":"20px",
+                            "width":"60px",
                             "x": 10,
                             "y": 10,
                             "font_size":"12px",
@@ -129,8 +129,8 @@
                          { 
                            "type":"label",
                             "key":3,
-                            "height":"100px",
-                            "width":"200px",
+                            "height":"60px",
+                            "width":"100px",
                             "x": 10,
                             "y": 10,
                             "font_size":"12px",

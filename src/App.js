@@ -9,7 +9,7 @@ import Navbar from './components/navbar/Navbar.js';
 import RegisterScreen from './components/register_screen/RegisterScreen.js';
 import LoginScreen from './components/login_screen/LoginScreen.js';
 import HomeScreen from './components/home_screen/HomeScreen.js';
-import EditScreen from './components/list_screen/EditScreen.js';
+import EditScreen from './components/edit_screen/EditScreen'
 import DatabaseTester from './test/DatabaseTester'
 
 class App extends Component {

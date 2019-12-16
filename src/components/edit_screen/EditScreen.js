@@ -12,7 +12,71 @@ export class EditScreen extends Component {
     state = {
         key: null
     }
-    setCurrentControl = (key) =>{
+    resetControl =() =>{
+        console.log(this.state.key)
+        this.setState({
+            key:null
+        })
+    }
+    handleKeyPress = (e) => {
+        const firestore = getFirestore();
+
+          let button  = String.fromCharCode(e.which).toLowerCase();
+          if(e.ctrlKey && button === 'd'){
+              if(this.state.key||this.state.key===0){
+                console.log("dupe");
+                let control = null;
+                if(this.state.key||this.state.key===0){
+                    for(var i =0;i<this.props.wireframe.controls.length;i++){
+                        if(this.props.wireframe.controls[i].key == this.state.key){
+                            control = this.props.wireframe.controls[i];
+                        }
+                    }
+                }
+                const duplicate = control;
+                duplicate.x=duplicate.x+100;
+                duplicate.y=duplicate.y+100;
+                duplicate.key=this.props.wireframe.controls.length;
+
+                let indexOfControl = null;
+                for(var i =0;i<this.props.wireframe.controls.length;i++){
+                    if(this.props.wireframe.controls[i].key === this.state.key){
+                        indexOfControl = i;
+                    }
+                }
+                this.props.wireframe.controls.push(duplicate);
+                this.props.wireframes[this.props.wireframe.key] = this.props.wireframe;
+                
+                firestore.collection("users").doc(this.props.auth.uid).update({
+                    wireframes: this.props.wireframes
+                })
+                  
+              }
+        }
+        // else if(e.keyCode ===8){
+        //     e.preventDefault();
+        //     if(this.state.key||this.state.key===0){
+        //         for(var i =0;i<this.props.wireframe.controls.length;i++){
+        //             if(this.props.wireframe.controls[i].key == this.state.key){
+        //                 this.props.wireframe.controls.splice(i,1);
+        //             }
+        //         }
+        //         console.log(this.props.wireframe.controls);
+        //         this.props.wireframes[this.props.wireframe.key] = this.props.wireframe;
+                
+        //         firestore.collection("users").doc(this.props.auth.uid).update({
+        //             wireframes: this.props.wireframes
+        //         })
+                
+        //     }
+
+
+
+
+        // }
+}
+    setCurrentControl = (e,key) =>{
+        e.preventDefault();
         console.log("update control");
         this.setState({
             key:key
@@ -159,12 +223,12 @@ export class EditScreen extends Component {
                 width:"200px",
                 x: 10,
                 y: 10,
-                font_size:"12",
+                font_size:"12px",
                 font_color:"black",
                 border_color:"black",
                 background_color:"white",
-                border_thickness:"2",
-                border_radius:"1"
+                border_thickness:"2px",
+                border_radius:"1px"
     
             };
             for(var i = 0;i<wireframes.length;i++){
@@ -196,12 +260,12 @@ export class EditScreen extends Component {
                 width:"60px",
                 x: 10,
                 y: 10,
-                font_size:"12",
+                font_size:"12px",
                 font_color:"black",
                 border_color:"black",
                 background_color:"white",
-                border_thickness:"2",
-                border_radius:"1"
+                border_thickness:"2px",
+                border_radius:"1px"
     
             };
             for(var i = 0;i<wireframes.length;i++){
@@ -229,12 +293,12 @@ export class EditScreen extends Component {
                 width:"100px",
                 x: 10,
                 y: 10,
-                font_size:"12",
+                font_size:"12px",
                 font_color:"black",
                 border_color:"black",
                 background_color:"green",
-                border_thickness:"2",
-                border_radius:"1"
+                border_thickness:"2px",
+                border_radius:"1px"
     
             };
             for(var i = 0;i<wireframes.length;i++){
@@ -260,12 +324,12 @@ export class EditScreen extends Component {
                 width:"100px",
                 x: 10,
                 y: 10,
-                font_size:"12",
+                font_size:"12px",
                 font_color:"black",
                 border_color:"black",
                 background_color:"green",
-                border_thickness:"2",
-                border_radius:"1"
+                border_thickness:"2px",
+                border_radius:"1px"
     
             };
             for(var i = 0;i<wireframes.length;i++){
@@ -281,12 +345,17 @@ export class EditScreen extends Component {
     }
 
 
+    componentDidMount(){
+        document.addEventListener('keydown',this.handleKeyPress);
+      }
+    componentWillUnmount(){
+        document.removeEventListener('keydown',this.handleKeyPress);
+      }
     render() {
             console.log("key:" +this.state.key);
             let control = null;
             if(this.state.key||this.state.key===0){
                 for(var i =0;i<this.props.wireframe.controls.length;i++){
-                    console.log("i"+i+"state key"+this.state.key);
                     if(this.props.wireframe.controls[i].key == this.state.key){
                         control = this.props.wireframe.controls[i];
                     }
@@ -333,13 +402,13 @@ export class EditScreen extends Component {
                     </div>
 
                 </div>
-                <div className="col s6 edit-container">
+                <div className="col s6 edit-container" >
                     <ControlList 
                         wireframe={this.props.wireframe} 
                         updateControlProps={this.updateControlProps}
                         setCurrentControl={this.setCurrentControl}></ControlList>
                 </div>
-                <div className="col s3 control-details-container">
+                <div className="col s3 control-details-container" >
                     <div>
                         <h4>Properties</h4>
                         <div>

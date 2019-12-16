@@ -39,7 +39,7 @@ export class ControlCard extends Component {
                                 
                             }
                         }
-                        onClick = {() => this.props.setCurrentControl(control.key)}
+                        onClick = {(e) => this.props.setCurrentControl(e,control.key)}
                         size={{ width: this.state.width, height: this.state.height }} position={{ x: this.state.x, y: this.state.y }}
                         onDragStop={(e, d) => {
                             this.setState({ x: d.x, y: d.y });
@@ -77,7 +77,7 @@ export class ControlCard extends Component {
                                 backgroundColor: control.background_color,
                             }
                         }
-                        onClick = {() => this.props.setCurrentControl(control.key)}
+                        onClick = {(e) => this.props.setCurrentControl(e,control.key)}
                         size={{ width: this.state.width, height: this.state.height }} 
                         position={{ x: this.state.x, y: this.state.y }}
                         onDragStop={(e, d) => {
@@ -115,7 +115,7 @@ export class ControlCard extends Component {
                                 backgroundColor: control.background_color,
                             }
                         }
-                        onClick = {() => this.props.setCurrentControl(control.key)}
+                        onClick = {(e) => this.props.setCurrentControl(e,control.key)}
                         size={{ width: this.state.width, height: this.state.height }} 
                         position={{ x: this.state.x, y: this.state.y }}
                         onDragStop={(e, d) => {
@@ -155,7 +155,7 @@ export class ControlCard extends Component {
                                 backgroundColor: control.background_color,
                             }
                         }
-                        onClick = {() => this.props.setCurrentControl(control.key)}
+                        onClick = {(e) => this.props.setCurrentControl(e,control.key)}
                         size={{ width: this.state.width, height: this.state.height }} 
                         position={{ x: this.state.x, y: this.state.y }}
                         onDragStop={(e, d) => {
@@ -171,7 +171,8 @@ export class ControlCard extends Component {
                             this.props.updateControlProps(control.key,this.state.width,this.state.height,this.state.x,this.state.y)
                         }}
                     >
-                    <div className="label-card-content">Label</div>
+                    <input className="label-card-content" placeholder="Label" type="text">
+                    </input>
                     </Rnd>
                 
                 </div>
