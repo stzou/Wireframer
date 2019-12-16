@@ -9,7 +9,7 @@ export class ControlList extends Component {
     render() {
         
         const { wireframe } = this.props;
-        const {updateControlProps} = this.props;
+        const {updateControlProps,setCurrentControl} = this.props;
         if(!wireframe){
             return <React.Fragment/>
         }
@@ -18,7 +18,10 @@ export class ControlList extends Component {
             <div>
             {controls && controls.map(function(control) {
                 return (
-                        <ControlCard control={control} updateControlProps={updateControlProps}/>
+                        <ControlCard 
+                            control={control} 
+                            updateControlProps={updateControlProps}
+                            setCurrentControl = {setCurrentControl}/>
                 );})
             }
             </div>

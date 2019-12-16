@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { NavLink, Redirect } from 'react-router-dom';
 import { firestoreConnect } from 'react-redux-firebase';
-import TodoListLinks from './TodoListLinks';
 import {createTodoList} from '../../store/database/asynchHandler';
 import { getFirestore } from 'redux-firestore';
 import { Link } from 'react-router-dom';
 import * as actionCreators from '../../store/actions/actionCreators.js'
 import { Button } from 'react-materialize';
+import WireframeLinks from './WireframeLinks';
  
 class HomeScreen extends Component {
 
@@ -51,7 +51,7 @@ class HomeScreen extends Component {
             <div className="dashboard container">
                 <div className="row">
                     <div className="col s12 m4">
-                        <TodoListLinks/>
+                        <WireframeLinks/>
                     </div>
 
                     <div className="col s8">

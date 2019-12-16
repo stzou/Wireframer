@@ -36,8 +36,10 @@ export class ControlCard extends Component {
                                 fontSize: control.font_size,
                                 color: control.font_color,
                                 backgroundColor: control.background_color,
+                                
                             }
                         }
+                        onClick = {() => this.props.setCurrentControl(control.key)}
                         size={{ width: this.state.width, height: this.state.height }} position={{ x: this.state.x, y: this.state.y }}
                         onDragStop={(e, d) => {
                             this.setState({ x: d.x, y: d.y });
@@ -61,7 +63,7 @@ export class ControlCard extends Component {
         }
         else if(control.type ==="button") {
             return (
-                <div>
+                <div >
                     <Rnd 
                         className = "button-card"
                         style={
@@ -75,6 +77,7 @@ export class ControlCard extends Component {
                                 backgroundColor: control.background_color,
                             }
                         }
+                        onClick = {() => this.props.setCurrentControl(control.key)}
                         size={{ width: this.state.width, height: this.state.height }} 
                         position={{ x: this.state.x, y: this.state.y }}
                         onDragStop={(e, d) => {
@@ -112,6 +115,7 @@ export class ControlCard extends Component {
                                 backgroundColor: control.background_color,
                             }
                         }
+                        onClick = {() => this.props.setCurrentControl(control.key)}
                         size={{ width: this.state.width, height: this.state.height }} 
                         position={{ x: this.state.x, y: this.state.y }}
                         onDragStop={(e, d) => {
@@ -151,6 +155,7 @@ export class ControlCard extends Component {
                                 backgroundColor: control.background_color,
                             }
                         }
+                        onClick = {() => this.props.setCurrentControl(control.key)}
                         size={{ width: this.state.width, height: this.state.height }} 
                         position={{ x: this.state.x, y: this.state.y }}
                         onDragStop={(e, d) => {

@@ -6,7 +6,7 @@ import { getFirestore } from 'redux-firestore';
 import { Button,Modal } from 'react-materialize';
  
 
-class TodoListCard extends React.Component {
+class WireframeCard extends React.Component {
 
     deleteWireframe = (e) =>{
         e.preventDefault();
@@ -67,4 +67,4 @@ export default compose(
     firestoreConnect([
       { collection: 'users'},
     ]),
-)(TodoListCard);
+)(WireframeCard);

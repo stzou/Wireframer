@@ -140,7 +140,7 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   top:10px;
   border: 2px solid; 
   background-color: #ffffff;
-  height: 500px;
+  height: 700px;
 }
 
 .container-control-option,.prompt-control-option
@@ -207,6 +207,9 @@ input[type=password]:not(.browser-default):focus:not([readonly]) + label{
   position: absolute;
   width: 100% !important;
   height: 100% !important;
+}
+.btn{
+  background-color:#ec407a;
 }
 
 .button-card-content{

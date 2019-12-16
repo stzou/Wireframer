@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import TodoListCard from './TodoListCard';
 import { getFirestore } from 'redux-firestore';
 import { firestoreConnect } from 'react-redux-firebase';
+import  WireframeCard from './WireframeCard';
 
-class TodoListLinks extends React.Component {
+class WireframeLinks extends React.Component {
     render() {
         let wireframes = null;
         if(this.props.users!==undefined){
@@ -20,7 +20,7 @@ class TodoListLinks extends React.Component {
             <div className="todo-lists section">
                 {wireframes && wireframes.map(wireframe => (
                     <Link to={'/wireframe/' + wireframe.key} key={wireframe.id}>
-                        <TodoListCard wireframe={wireframe} wireframes={wireframes}/>
+                        <WireframeCard wireframe={wireframe} wireframes={wireframes}/>
                     </Link>
                 ))}
             </div>
@@ -43,4 +43,4 @@ export default compose(
     firestoreConnect([
       { collection: 'users'},
     ]),
-)(TodoListLinks);
+)(WireframeLinks);
